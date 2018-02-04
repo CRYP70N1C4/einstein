@@ -3,7 +3,7 @@ import requests,threading,time,json
 requests.packages.urllib3.disable_warnings()
 UA='Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36';
 refer='https://pet-chain.baidu.com/'
-Cookie=''
+Cookie=''#换成你自己的Cookie
 headers={'Cookie':Cookie,'Referer':refer,'User-Agent':UA,'accept':'application/json',
          'Pragma':'no-cache','Cache-Control':'no-cache','content-type':'application/json'}
 
@@ -29,7 +29,6 @@ def buy_pet(petId):
     r=requests.post(url,data=json.dumps(param),headers=headers,verify=False)
     return r.json()
 
-
 def buy_all_pets(max_price):
         while True:
             data = get_all_pets()
@@ -40,6 +39,7 @@ def buy_all_pets(max_price):
                 except Exception as err:
                     pass
 
-for i in range(10):
-    t =threading.Thread(target=buy_all_pets,args=(10,))
-    t.start()
+if __name__ == '__main__':
+    for i in range(10):
+        t = threading.Thread(target=buy_all_pets, args=(10,))
+        t.start()
