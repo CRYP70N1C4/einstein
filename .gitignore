@@ -1,2 +1,6 @@
 _model
 .idea
+local
+_data
+__pycache__
+*pyc

@@ -32,6 +32,7 @@ def get_display_size():
 def screenshots():
     process = subprocess.Popen('adb shell screencap -p', shell=True, stdout=subprocess.PIPE)
     data = process.stdout.read()
+    print(type(data))
     if sys.platform == 'win32':
         data = data.replace(b'\r\n', b'\n')
     return Image.open(io.BytesIO(data))

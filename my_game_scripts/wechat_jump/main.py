@@ -73,7 +73,7 @@ def main():
         ts = int(time.time())
         jump(abs(piece-board))
         im.save("screenshot_backups/{}.png".format(ts))
-        time.sleep(random.uniform(2, 3.1))  # 为了保证截图的时候应落稳了，多延迟一会儿
+        time.sleep(random.uniform(1, 1.1))  # 为了保证截图的时候应落稳了，多延迟一会儿
 
 
 if __name__ == '__main__':
