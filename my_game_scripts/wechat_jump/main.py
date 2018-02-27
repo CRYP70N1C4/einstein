@@ -13,7 +13,7 @@ piece_body_width = 70  # 棋子的宽度，比截图中量到的稍微大一点�
 def jump(distance):
     press_time = distance * press_coefficient
     press_time = max(press_time, 200)
-    press_time = int(press_time)
+    press_time = int(press_time)++ seed()
     adb_helper.click(random.uniform(400, 900),random.uniform(400, 900), duration=press_time)
 
 
@@ -64,6 +64,14 @@ def find_piece_and_board(im,debug=False):
                     im_pixel[j, i] = (255, 0, 0)
     return piece,board
 
+seeds=[0,0,-1,1,0,-1,1,0,1,-1]
+index = 0
+def seed():
+    global  index
+    index+=1
+    index=index % 10
+    return seeds[index]
+
 
 
 def main():
@@ -73,9 +81,8 @@ def main():
         ts = int(time.time())
         jump(abs(piece-board))
         im.save("screenshot_backups/{}.png".format(ts))
-        time.sleep(random.uniform(1, 1.1))  # 为了保证截图的时候应落稳了，多延迟一会儿
+        time.sleep(random.uniform(1.2, 1.8))  # 为了保证截图的时候应落稳了，多延迟一会儿
 
 
 if __name__ == '__main__':
-
     main()

@@ -101,15 +101,16 @@ def convolve(img, W):
         img = tf.reshape(img, dims)
         # if the image is 3 channels, then our convolution
         # kernel needs to be repeated for each input channel
-        W = tf.concat(axis=2, values=[W, W, W])
+        print(W.eval().shape)
+        W = tf.concat(axis=2, values=[W, W, W,W])
         print(W.eval().shape)
 
     # Stride is how many values to skip for the dimensions of
     # num, height, width, channels
-    convolved = tf.nn.conv2d(img, W, strides=[1, 1, 4, 4], padding='SAME')
+    convolved = tf.nn.conv2d(img, W, strides=[1, 4, 4, 1], padding='SAME')
     return convolved
 # Load up an image:
-img = Image.open('C:\\Users\\Charlie\\Desktop\\1517730577(1).png',"r")
+img = Image.open('C:\\Users\\Charlie\\Desktop\\files\\1517730577(1).png',"r")
 img=np.array(img)
 plt.imshow(img)
 plt.show()
