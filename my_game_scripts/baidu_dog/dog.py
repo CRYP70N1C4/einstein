@@ -1,7 +1,7 @@
 import requests,threading,time,json
 
 requests.packages.urllib3.disable_warnings()
-UA='Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36';
+UA='Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.2883.87 Safari/537.36';
 refer='https://pet-chain.baidu.com/'
 Cookie=''#换成你自己的Cookie
 headers={'Cookie':Cookie,'Referer':refer,'User-Agent':UA,'accept':'application/json',
